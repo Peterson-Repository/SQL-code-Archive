@@ -1,0 +1,88 @@
+//Project Table
+
+CREATE TABLE Transactions
+(
+TransID NUMBER NOT NULL PRIMARY KEY,
+StoreID NUMBER,
+ItemID NUMBER,
+CONSTRAINT fk_TRANSSTORE FOREIGN KEY (StoreID) REFERENCES StoreLocations(StoreID),
+CONSTRAINT fk_TRANSITEM FOREIGN KEY (ItemID) REFERENCES ItemDetails(ItemID)
+);
+
+
+
+
+
+CREATE TABLE ItemDetails
+(
+ItemID number NOT NULL,
+ItemName varchar(25),
+Brand varchar(25),
+Price number,
+Qty int,
+PRIMARY KEY (ItemID)
+)
+
+
+
+
+
+CREATE TABLE StoreLocations
+(
+StoreID NUMBER NOT NULL PRIMARY KEY,
+Address varchar(25),
+City varchar(25),
+State varchar(25),
+Zip int
+);
+
+
+
+
+
+
+
+
+
+CREATE TABLE ItemDetails
+(
+ItemID NUMBER NOT NULL PRIMARY KEY,
+ItemName varchar(25),
+Brand varchar(25),
+Price NUMBER,
+Qty NUMBER
+);
+
+
+//----------> desc ItemDetails
+
+
+
+
+
+
+CREATE TABLE StoreLocations
+(
+StoreID NUMBER NOT NULL PRIMARY KEY,
+Address varchar(25),
+City varchar(25),
+State varchar(25),
+Zip int
+);
+
+//----------> desc StoreLocations
+
+
+
+
+
+CREATE TABLE Transactions
+(
+TransID NUMBER NOT NULL PRIMARY KEY,
+StoreID NUMBER,
+ItemID NUMBER,
+CONSTRAINT fk_TRANSSTORE FOREIGN KEY (StoreID) REFERENCES StoreLocations(StoreID),
+CONSTRAINT fk_TRANSITEM FOREIGN KEY (ItemID) REFERENCES ItemDetails(ItemID)
+);
+
+//-----------> desc Transactions
